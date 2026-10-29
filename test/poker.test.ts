@@ -61,3 +61,15 @@ test("a full house scores 50 point", () => {
 
   assert.equal(scoreHand(hand), 50);
 });
+
+test("four of a kind scores 60 points", () => {
+  const hand = [
+    { value: 4, suit: "clubs" },
+    { value: 4, suit: "diamonds" },
+    { value: 4, suit: "hearts" },
+    { value: 4, suit: "spades" },
+    { value: 13, suit: "clubs" },
+  ];
+
+  assert.equal(scoreHand(hand), 60);
+});

@@ -24,8 +24,13 @@ export function scoreHand(hand: Hand): number {
 
   let hasThreeOfAKind = false;
   let hasPair = false;
+  let hasFourOfAKind = false;
 
   for (const count of valueCounts.values()) {
+    if (count === 4) {
+      hasFourOfAKind = true;
+    }
+
     if (count === 3) {
       hasThreeOfAKind = true;
     }
@@ -33,6 +38,10 @@ export function scoreHand(hand: Hand): number {
     if (count === 2) {
       hasPair = true;
     }
+  }
+
+  if (hasFourOfAKind) {
+    return 60;
   }
 
   if (hasThreeOfAKind && hasPair) {
