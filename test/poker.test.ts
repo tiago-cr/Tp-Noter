@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { scoreHand } from "../poker.ts";
+import { scoreHand, scoreHands } from "../poker.ts";
 
 test("hand who return the highest card value", () => {
   const hand = [
@@ -84,4 +84,25 @@ test("a straigt flush scores 80 points", () => {
   ];
 
   assert.equal(scoreHand(hand), 80);
+});
+
+test("scoreHands returns the sum of all hand scores", () => {
+  const hands = [
+    [
+      { value: 3, suit: "clubs" },
+      { value: 8, suit: "diamonds" },
+      { value: 10, suit: "hearts" },
+      { value: 12, suit: "spades" },
+      { value: 13, suit: "clubs" },
+    ],
+    [
+      { value: 2, suit: "diamonds" },
+      { value: 3, suit: "hearts" },
+      { value: 4, suit: "spades" },
+      { value: 5, suit: "clubs" },
+      { value: 6, suit: "diamonds" },
+    ],
+  ];
+
+  assert.equal(scoreHands(hands), 53);
 });

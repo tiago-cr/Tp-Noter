@@ -1,6 +1,8 @@
+type Suit = "hearts" | "diamonds" | "clubs" | "spades";
+
 type Card = {
   value: number;
-  suit: string;
+  suit: Suit;
 };
 
 type Hand = Card[];
@@ -74,4 +76,14 @@ export function scoreHand(hand: Hand): number {
   }
 
   return highestValue;
+}
+
+export function scoreHands(hands: Hand[]): number {
+  let totalScore = 0;
+
+  for (const hand of hands) {
+    totalScore += scoreHand(hand);
+  }
+
+  return totalScore;
 }
