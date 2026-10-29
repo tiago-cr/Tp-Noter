@@ -1,0 +1,20 @@
+{
+  "name": "tp-noter",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "poker.ts",
+  "scripts": {
+    "test": "node --test test/poker.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiago-cr/Tp-Noter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tiago-cr/Tp-Noter/issues"
+  },
+  "homepage": "https://github.com/tiago-cr/Tp-Noter#readme",
+  "description": ""
+}
