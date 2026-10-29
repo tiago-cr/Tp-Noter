@@ -22,10 +22,25 @@ export function scoreHand(hand: Hand): number {
     suitCounts.set(card.suit, suitCount + 1);
   }
 
+  let hasThreeOfAKind = false;
+  let hasPair = false;
+
   for (const count of valueCounts.values()) {
     if (count === 3) {
-      return 30;
+      hasThreeOfAKind = true;
     }
+
+    if (count === 2) {
+      hasPair = true;
+    }
+  }
+
+  if (hasThreeOfAKind && hasPair) {
+    return 50;
+  }
+
+  if (hasThreeOfAKind) {
+    return 30;
   }
 
   if (suitCounts.size === 1) {

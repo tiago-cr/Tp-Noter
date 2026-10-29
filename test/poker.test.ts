@@ -49,3 +49,15 @@ test("a flush scores 45 points", () => {
 
   assert.equal(scoreHand(hand), 45);
 });
+
+test("a full house scores 50 point", () => {
+  const hand = [
+    { value: 2, suit: "clubs" },
+    { value: 2, suit: "diamonds" },
+    { value: 2, suit: "hearts" },
+    { value: 9, suit: "spades" },
+    { value: 9, suit: "clubs" },
+  ];
+
+  assert.equal(scoreHand(hand), 50);
+});
