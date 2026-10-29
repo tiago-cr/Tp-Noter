@@ -73,3 +73,15 @@ test("four of a kind scores 60 points", () => {
 
   assert.equal(scoreHand(hand), 60);
 });
+
+test("a straigt flush scores 80 points", () => {
+  const hand = [
+    { value: 10, suit: "hearts" },
+    { value: 11, suit: "hearts" },
+    { value: 12, suit: "hearts" },
+    { value: 13, suit: "hearts" },
+    { value: 14, suit: "hearts" },
+  ];
+
+  assert.equal(scoreHand(hand), 80);
+});

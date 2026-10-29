@@ -52,18 +52,24 @@ export function scoreHand(hand: Hand): number {
     return 30;
   }
 
-  if (suitCounts.size === 1) {
-    return 45;
-  }
-
   const sortedValues = Array.from(valueCounts.keys()).sort(
     (firstValue, secondValue) => firstValue - secondValue,
   );
 
-  if (
+  const isStraight =
     sortedValues.length === 5 &&
-    sortedValues[4] - sortedValues[0] === 4
-  ) {
+    sortedValues[4] - sortedValues[0] === 4;
+  const isFlush = suitCounts.size === 1;
+
+  if (isStraight && isFlush) {
+    return 80;
+  }
+
+  if (isFlush) {
+    return 45;
+  }
+
+  if (isStraight) {
     return 40;
   }
 
