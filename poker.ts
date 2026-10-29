@@ -8,6 +8,7 @@ type Hand = Card[];
 export function scoreHand(hand: Hand): number {
   let highestValue = 0;
   const valueCounts = new Map<number, number>();
+  const suitCounts = new Map<string, number>();
 
   for (const card of hand) {
     if (card.value > highestValue) {
@@ -16,12 +17,19 @@ export function scoreHand(hand: Hand): number {
 
     const count = valueCounts.get(card.value) ?? 0;
     valueCounts.set(card.value, count + 1);
+
+    const suitCount = suitCounts.get(card.suit) ?? 0;
+    suitCounts.set(card.suit, suitCount + 1);
   }
 
   for (const count of valueCounts.values()) {
     if (count === 3) {
       return 30;
     }
+  }
+
+  if (suitCounts.size === 1) {
+    return 45;
   }
 
   const sortedValues = Array.from(valueCounts.keys()).sort(
