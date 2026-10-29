@@ -25,3 +25,15 @@ test("a three of a kind scores 30 points", () => {
 
   assert.equal(scoreHand(hand), 30);
 });
+
+test("a straight scores 40 points", () => {
+  const hand = [
+    { value: 5, suit: "clubs" },
+    { value: 6, suit: "diamonds" },
+    { value: 7, suit: "hearts" },
+    { value: 8, suit: "spades" },
+    { value: 9, suit: "clubs" },
+  ];
+
+  assert.equal(scoreHand(hand), 40);
+});
