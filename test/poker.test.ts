@@ -86,6 +86,18 @@ test("a straigt flush scores 80 points", () => {
   assert.equal(scoreHand(hand), 80);
 });
 
+test("ace does not count as low in a straight", () => {
+  const hand = [
+    { value: 14, suit: "clubs" },
+    { value: 2, suit: "diamonds" },
+    { value: 3, suit: "hearts" },
+    { value: 4, suit: "spades" },
+    { value: 5, suit: "clubs" },
+  ];
+
+  assert.equal(scoreHand(hand), 14);
+});
+
 test("scoreHands returns the sum of all hand scores", () => {
   const hands = [
     [
@@ -105,4 +117,39 @@ test("scoreHands returns the sum of all hand scores", () => {
   ];
 
   assert.equal(scoreHands(hands), 53);
+});
+
+test("scoreHands returns 148 for the example hands", () => {
+  const hands = [
+    [
+      { value: 2, suit: "hearts" },
+      { value: 2, suit: "spades" },
+      { value: 2, suit: "diamonds" },
+      { value: 9, suit: "clubs" },
+      { value: 9, suit: "spades" },
+    ],
+    [
+      { value: 5, suit: "clubs" },
+      { value: 6, suit: "diamonds" },
+      { value: 7, suit: "hearts" },
+      { value: 8, suit: "spades" },
+      { value: 9, suit: "clubs" },
+    ],
+    [
+      { value: 2, suit: "hearts" },
+      { value: 7, suit: "hearts" },
+      { value: 9, suit: "hearts" },
+      { value: 11, suit: "hearts" },
+      { value: 13, suit: "hearts" },
+    ],
+    [
+      { value: 3, suit: "clubs" },
+      { value: 8, suit: "diamonds" },
+      { value: 10, suit: "hearts" },
+      { value: 12, suit: "spades" },
+      { value: 13, suit: "clubs" },
+    ],
+  ];
+
+  assert.equal(scoreHands(hands), 148);
 });
