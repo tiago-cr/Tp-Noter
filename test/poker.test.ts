@@ -13,3 +13,15 @@ test("hand who return the highest card value", () => {
 
   assert.equal(scoreHand(hand), 13);
 });
+
+test("a three of a kind scores 30 points", () => {
+  const hand = [
+    { value: 7, suit: "clubs" },
+    { value: 7, suit: "diamonds" },
+    { value: 7, suit: "hearts" },
+    { value: 4, suit: "spades" },
+    { value: 9, suit: "clubs" },
+  ];
+
+  assert.equal(scoreHand(hand), 30);
+});
